@@ -1,0 +1,6 @@
+_ConfigureOscillator: CODE, 7996 0 14
+_main: CODE, 8010 0 44
+__initialization: CODE, 7990 0 0
+_delays: CODE, 8112 0 80
+___wmul: CODE, 8054 0 58
+Total: 196

@@ -1,0 +1,10 @@
+_delayHigh: CODE, 32498 0 26
+_ConfigureOscillator: CODE, 32420 0 18
+_main: CODE, 32672 0 96
+_InitApp: CODE, 32592 0 80
+__initialization: CODE, 32456 0 12
+_delayLow: CODE, 32554 0 38
+_Delay10TCYx: CODE, 32438 0 18
+_Delay10KTCYx: CODE, 32474 0 24
+_doPWMPeriod: CODE, 32524 0 30
+Total: 342

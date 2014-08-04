@@ -1,0 +1,349 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.31 build 56723 
+                                                                                               Wed Jul 16 11:50:09 2014
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 56723
+     1                           	processor	18F1330
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    10                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    11                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    12  0000                     _OSCCONbits	set	4051
+    13  0000                     _OSCTUNEbits	set	3995
+    14  0000                     _LATB0	set	31824
+    15  0000                     _LATB1	set	31825
+    16  0000                     _TRISA1	set	31889
+    17  0000                     _TRISB0	set	31896
+    18  0000                     _TRISB1	set	31897
+    19  0000                     _TRISB4	set	31900
+    20                           
+    21                           ; 0 bytes @ 0x2
+    22 ;;
+    23 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    24 ;;
+    25 ;; *************** function _main *****************
+    26 ;; Defined at:
+    27 ;;		line 93 in file "main.c"
+    28 ;; Parameters:    Size  Location     Type
+    29 ;;		None
+    30 ;; Auto vars:     Size  Location     Type
+    31 ;;		None
+    32 ;; Return value:  Size  Location     Type
+    33 ;;		None               void
+    34 ;; Registers used:
+    35 ;;		wreg, status,2, cstack
+    36 ;; Tracked objects:
+    37 ;;		On entry : 0/0
+    38 ;;		On exit  : 0/0
+    39 ;;		Unchanged: 0/0
+    40 ;; Data sizes:     COMRAM   BANK0
+    41 ;;      Params:         0       0
+    42 ;;      Locals:         0       0
+    43 ;;      Temps:          0       0
+    44 ;;      Totals:         0       0
+    45 ;;Total ram usage:        0 bytes
+    46 ;; Hardware stack levels required when called:    1
+    47 ;; This function calls:
+    48 ;;		_ConfigureOscillator
+    49 ;;		_Delay10KTCYx
+    50 ;; This function is called by:
+    51 ;;		Startup code after reset
+    52 ;; This function uses a non-reentrant model
+    53 ;;
+    54                           
+    55                           	psect	text0
+    56  001E1E                     __ptext0:
+    57                           	opt stack 0
+    58  001E1E                     _main:
+    59                           	opt stack 29
+    60                           
+    61                           ;main.c: 94: ConfigureOscillator();
+    62                           
+    63                           ;incstack = 0
+    64  001E1E  ECFC  F00E         	call	_ConfigureOscillator	;wreg free
+    65                           
+    66                           ;main.c: 96: TRISB0 = 0;
+    67  001E22  9093               	bcf	3987,0,c	;volatile
+    68                           
+    69                           ;main.c: 97: TRISB1 = 0;
+    70  001E24  9293               	bcf	3987,1,c	;volatile
+    71                           
+    72                           ;main.c: 98: TRISB4 = 1;
+    73  001E26  8893               	bsf	3987,4,c	;volatile
+    74                           
+    75                           ;main.c: 99: TRISA1 = 1;
+    76  001E28  8292               	bsf	3986,1,c	;volatile
+    77  001E2A                     l670:
+    78                           
+    79                           ;main.c: 122: LATB0 = 1;
+    80  001E2A  808A               	bsf	3978,0,c	;volatile
+    81                           
+    82                           ;main.c: 123: LATB1 = 1;
+    83  001E2C  828A               	bsf	3978,1,c	;volatile
+    84                           
+    85                           ;main.c: 124: Delay10KTCYx(30);
+    86  001E2E  0E1E               	movlw	30
+    87  001E30  EC03  F00F         	call	_Delay10KTCYx
+    88                           
+    89                           ;main.c: 126: LATB0 = 0;
+    90  001E34  908A               	bcf	3978,0,c	;volatile
+    91                           
+    92                           ;main.c: 127: LATB1 = 0;
+    93  001E36  928A               	bcf	3978,1,c	;volatile
+    94                           
+    95                           ;main.c: 129: Delay10KTCYx(30);
+    96  001E38  0E1E               	movlw	30
+    97  001E3A  EC03  F00F         	call	_Delay10KTCYx
+    98  001E3E  D7F5               	goto	l670
+    99  001E40                     __end_of_main:
+   100                           	opt stack 0
+   101                           
+   102                           	psect	cinit
+   103  001DF2                     __pcinit:
+   104                           	opt stack 0
+   105  001DF2                     start_initialization:
+   106                           	opt stack 0
+   107  001DF2                     __initialization:
+   108                           	opt stack 0
+   109  001DF2                     end_of_initialization:
+   110                           	opt stack 0
+   111  001DF2                     __end_of__initialization:
+   112                           	opt stack 0
+   113  001DF2  0100               	movlb	0
+   114  001DF4  EF0F  F00F         	goto	_main	;jump to C main() function
+   115                           
+   116                           	psect	cstackCOMRAM
+   117  000001                     __pcstackCOMRAM:
+   118                           	opt stack 0
+   119  000001                     ??_Delay10KTCYx:
+   120  000001                     
+   121                           ; 0 bytes @ 0x0
+   122  000001                     	ds	1
+   123  000002                     Delay10KTCYx@unit:
+   124                           	opt stack 0
+   125                           
+   126                           ; 1 bytes @ 0x1
+   127  000002                     	ds	1
+   128  000003                     
+   129 ;; *************** function _Delay10KTCYx *****************
+   130 ;; Defined at:
+   131 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.31\sources\pic18\d10ktcyx.c"
+   132 ;; Parameters:    Size  Location     Type
+   133 ;;  unit            1    wreg     unsigned char 
+   134 ;; Auto vars:     Size  Location     Type
+   135 ;;  unit            1    1[COMRAM] unsigned char 
+   136 ;; Return value:  Size  Location     Type
+   137 ;;		None               void
+   138 ;; Registers used:
+   139 ;;		wreg
+   140 ;; Tracked objects:
+   141 ;;		On entry : 0/0
+   142 ;;		On exit  : 0/0
+   143 ;;		Unchanged: 0/0
+   144 ;; Data sizes:     COMRAM   BANK0
+   145 ;;      Params:         0       0
+   146 ;;      Locals:         1       0
+   147 ;;      Temps:          1       0
+   148 ;;      Totals:         2       0
+   149 ;;Total ram usage:        2 bytes
+   150 ;; Hardware stack levels used:    1
+   151 ;; This function calls:
+   152 ;;		Nothing
+   153 ;; This function is called by:
+   154 ;;		_main
+   155 ;; This function uses a non-reentrant model
+   156 ;;
+   157                           
+   158                           	psect	text1
+   159  001E06                     __ptext1:
+   160                           	opt stack 0
+   161  001E06                     _Delay10KTCYx:
+   162                           	opt stack 29
+   163                           
+   164                           ;incstack = 0
+   165                           ;Delay10KTCYx@unit stored from wreg
+   166  001E06  CFE8 F002          	movff	wreg,Delay10KTCYx@unit
+   167  001E0A                     l246:
+   168  001E0A  0E0D               	movlw	13
+   169  001E0C  6E01               	movwf	??_Delay10KTCYx& (0+255),c
+   170  001E0E  0EFC               	movlw	252
+   171  001E10                     u27:
+   172  001E10  2EE8               	decfsz	wreg,f,c
+   173  001E12  D7FE               	goto	u27
+   174  001E14  2E01               	decfsz	??_Delay10KTCYx& (0+255),f,c
+   175  001E16  D7FC               	goto	u27
+   176  001E18  2E02               	decfsz	Delay10KTCYx@unit,f,c
+   177  001E1A  D7F7               	goto	l246
+   178  001E1C  0012               	return	
+   179  001E1E                     __end_of_Delay10KTCYx:
+   180                           	opt stack 0
+   181                           wreg	equ	0xFE8
+   182                           
+   183 ;; *************** function _ConfigureOscillator *****************
+   184 ;; Defined at:
+   185 ;;		line 74 in file "main.c"
+   186 ;; Parameters:    Size  Location     Type
+   187 ;;		None
+   188 ;; Auto vars:     Size  Location     Type
+   189 ;;		None
+   190 ;; Return value:  Size  Location     Type
+   191 ;;		None               void
+   192 ;; Registers used:
+   193 ;;		wreg, status,2
+   194 ;; Tracked objects:
+   195 ;;		On entry : 0/0
+   196 ;;		On exit  : 0/0
+   197 ;;		Unchanged: 0/0
+   198 ;; Data sizes:     COMRAM   BANK0
+   199 ;;      Params:         0       0
+   200 ;;      Locals:         0       0
+   201 ;;      Temps:          0       0
+   202 ;;      Totals:         0       0
+   203 ;;Total ram usage:        0 bytes
+   204 ;; Hardware stack levels used:    1
+   205 ;; This function calls:
+   206 ;;		Nothing
+   207 ;; This function is called by:
+   208 ;;		_main
+   209 ;; This function uses a non-reentrant model
+   210 ;;
+   211                           
+   212                           	psect	text2
+   213  001DF8                     __ptext2:
+   214                           	opt stack 0
+   215  001DF8                     _ConfigureOscillator:
+   216                           	opt stack 29
+   217                           
+   218                           ;main.c: 75: OSCCONbits.IRCF = 0b111;
+   219                           
+   220                           ;incstack = 0
+   221  001DF8  88D3               	bsf	4051,4,c	;volatile
+   222  001DFA  8AD3               	bsf	4051,5,c	;volatile
+   223  001DFC  8CD3               	bsf	4051,6,c	;volatile
+   224                           
+   225                           ;main.c: 76: OSCCONbits.SCS = 0b11;
+   226  001DFE  0E03               	movlw	3
+   227  001E00  12D3               	iorwf	4051,f,c	;volatile
+   228                           
+   229                           ;main.c: 77: OSCTUNEbits.PLLEN = 0b1;
+   230  001E02  8C9B               	bsf	3995,6,c	;volatile
+   231  001E04  0012               	return	
+   232  001E06                     __end_of_ConfigureOscillator:
+   233                           	opt stack 0
+   234  0000                     wreg	equ	0xFE8
+   235                           wreg	equ	0xFE8
+   236                           
+   237                           	psect	rparam
+   238  0000                     wreg	equ	0xFE8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM          127      2       2
+    BANK0           116      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    _main->_Delay10KTCYx
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0      15
+                _ConfigureOscillator
+                       _Delay10KTCYx
+ ---------------------------------------------------------------------------------
+ (1) _Delay10KTCYx                                         2     2      0      15
+                                              0 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _ConfigureOscillator                                  0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _ConfigureOscillator
+   _Delay10KTCYx
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           7F      0       0       0        0.0%
+EEDATA              80      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              7F      2       2       1        1.6%
+STACK                0      0       0       2        0.0%
+BITBANK0            74      0       0       3        0.0%
+BANK0               74      0       0       4        0.0%
+ABS                  0      0       0       5        0.0%
+BIGRAM              F3      0       0       6        0.0%
+DATA                 0      0       0       7        0.0%
+BITSFR_5             0      0       0      40        0.0%
+SFR_5                0      0       0      40        0.0%
+BITSFR_4             0      0       0      40        0.0%
+SFR_4                0      0       0      40        0.0%
+BITSFR_3             0      0       0      40        0.0%
+SFR_3                0      0       0      40        0.0%
+BITSFR_2             0      0       0      40        0.0%
+SFR_2                0      0       0      40        0.0%
+BITSFR_1             0      0       0      40        0.0%
+SFR_1                0      0       0      40        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.31 build 56723 
+Symbol Table                                                                                   Wed Jul 16 11:50:09 2014
+
+                          u27 1E10                   __CFG_BORV$3 000000                  __CFG_CP0$OFF 000000  
+                __CFG_CP1$OFF 000000                           l246 1E0A                           l670 1E2A  
+                __CFG_CPB$OFF 000000                  __CFG_CPD$OFF 000000                  __CFG_BOR$OFF 000000  
+                         wreg 000FE8                  __CFG_WDT$OFF 000000                          _main 1E1E  
+                        start 0002                 __CFG_IESO$OFF 000000                 __CFG_MCLRE$ON 000000  
+                       ?_main 0001                         _LATB0 007C50                         _LATB1 007C51  
+       __size_of_Delay10KTCYx 0018           _ConfigureOscillator 1DF8                 __CFG_PWRT$OFF 000000  
+               __CFG_WRT0$OFF 000000                 __CFG_WRT1$OFF 000000                __CFG_EBTR0$OFF 000000  
+              __CFG_FCMEN$OFF 000000                __CFG_EBTR1$OFF 000000                 __CFG_WRTB$OFF 000000  
+               __CFG_WRTC$OFF 000000                 __CFG_WRTD$OFF 000000                __CFG_EBTRB$OFF 000000  
+        ?_ConfigureOscillator 0001               __initialization 1DF2                __CFG_HPOL$HIGH 000000  
+                __end_of_main 1E40                  _Delay10KTCYx 1E06                __CFG_LPOL$HIGH 000000  
+                      ??_main 0003                 __activetblptr 000000                        _TRISA1 007C91  
+                      _TRISB0 007C98                        _TRISB1 007C99                        _TRISB4 007C9C  
+       ??_ConfigureOscillator 0001                __CFG_XINST$OFF 000000                    __accesstop 0080  
+     __end_of__initialization 1DF2               __CFG_FLTAMX$RA7 000000                __pcstackCOMRAM 0001  
+             __CFG_OSC$INTIO2 000000              __CFG_BBSIZ$BB512 000000               __CFG_PWMPIN$OFF 000000  
+                     __Hparam 0000                       __Lparam 0000               __CFG_STVREN$OFF 000000  
+                     __pcinit 1DF2                       __ramtop 0100                       __ptext0 1E1E  
+                     __ptext1 1E06                       __ptext2 1DF8          end_of_initialization 1DF2  
+ __end_of_ConfigureOscillator 1E06              __CFG_T1OSCMX$LOW 000000           start_initialization 1DF2  
+               ?_Delay10KTCYx 0001              __CFG_WDTPS$32768 000000                ??_Delay10KTCYx 0001  
+            Delay10KTCYx@unit 0002                      __Hrparam 0000                      __Lrparam 0000  
+               __size_of_main 0022  __size_of_ConfigureOscillator 000E                   _OSCTUNEbits 000F9B  
+        __end_of_Delay10KTCYx 1E1E                    _OSCCONbits 000FD3  

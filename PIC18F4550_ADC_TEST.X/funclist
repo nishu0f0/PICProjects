@@ -1,0 +1,5 @@
+_main: CODE, 32662 0 106
+__initialization: CODE, 32532 0 4
+_Delay10KTCYx: CODE, 32542 0 24
+_OpenADC: CODE, 32566 0 96
+Total: 230

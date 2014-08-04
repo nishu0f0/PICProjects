@@ -1,0 +1,6 @@
+_ConfigureOscillator: CODE, 32384 0 18
+_main: CODE, 32530 0 238
+_InitApp: CODE, 32444 0 86
+__initialization: CODE, 32402 0 12
+_Delay10KTCYx: CODE, 32420 0 24
+Total: 378
